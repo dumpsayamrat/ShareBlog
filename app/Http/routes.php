@@ -12,5 +12,16 @@
 */
 
 $app->get('/', function () use ($app) {
-    return $app->version();
+	$data = App\Comment::find(1);
+    return $data->blog;
 });
+
+$app->get('/key', function() {
+    return str_random(32);
+});
+
+// api and webservice.
+header('Access-Control-Allow-Origin', '*');
+header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+
+
