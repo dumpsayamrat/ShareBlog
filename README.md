@@ -1,2 +1,4 @@
-# ShareBlog
-API Web for 235022 Android Programming
+# ShareBlog is API web for ShareBlog-Android
+
+**ShareBlog used Lumen Framework**
+
