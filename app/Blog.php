@@ -14,6 +14,13 @@ class Blog extends Model
     protected $table = 'blog';
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['title', 'author', 'password', 'content', 'star'];
+
+    /**
      * Get the comments for the blog post.
      */
     public function comments()
