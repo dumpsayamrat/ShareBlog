@@ -12,8 +12,7 @@
 */
 
 $app->get('/', function () use ($app) {
-	$data = App\Comment::find(1);
-    return $data->blog;
+    return $app->version();
 });
 
 $app->get('/key', function() {
@@ -42,6 +41,14 @@ $app->put('/api/blog', function (\Illuminate\Http\Request $request) {
 
 $app->get('/api/blog/{id}/delete', function ($id) {
 	return App\Blog::find($id)->delete();
+});
+
+$app->get('/api/blog/{id}/star', function ($id) {
+	 $blog = App\Blog::find($id);
+	 $star = $blog->star;
+	 $blog->star = $star+1;
+	 $blog->save();
+	 return $blog;
 });
 
 $app->get('/api/blog/comment/{blog_id}', function ($blog_id) {
